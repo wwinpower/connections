@@ -1,0 +1,40 @@
+$font-color-withe: #ffffff;
+$font-color-dark: #222222;
+$font-color-orange: #FB6D3A;
+
+.btn {
+    background: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+}
+
+@mixin custom-style($bg, $color, $filter) {
+    background: $bg;
+    border-radius: 10px;
+    color: $color;
+    filter: drop-shadow($filter);
+
+    a{
+        text-decoration: none;
+        color: $color;
+    }
+}
+
+.default {
+    @include custom-style($font-color-dark, $font-color-withe, 0px 2px 13px rgba(0, 0, 0, 0.3));
+
+    &:hover {
+        transition: 0.3s;
+        @include custom-style($font-color-dark, $font-color-withe, 0px 2px 13px rgba(0, 0, 0, 0.5));
+    }
+}
+
+.orange {
+    @include custom-style($font-color-orange, $font-color-withe, 0px 2px 13px rgba(255, 106, 52, 0.7));
+
+    &:hover {
+        transition: 0.3s;
+        @include custom-style($font-color-orange, $font-color-withe, 0px 2px 13px rgba(255, 106, 52, 1));
+    }
+}

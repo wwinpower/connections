@@ -1,0 +1,31 @@
+.btn__group {
+    display: flex;
+    gap: 10px;
+}
+
+.page {
+    height: 100vh;
+    padding: 20px 0;
+
+    &__container {
+        margin-left: 360px;
+        margin-right: 20px;
+        background-color: #5B46B1;
+        height: 100%;
+        border-radius: 40px;
+        padding: 40px;
+
+        .container {
+            &__header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h2 {
+                    color: #fff;
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}

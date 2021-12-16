@@ -1,0 +1,127 @@
+$font-color-orange: #FB6D3A;
+$font-color-purple-dark: #503E9D;
+$font-color-purple-light: #5B46B1;
+
+@mixin curved {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 70px;
+    height: 70px;
+}
+
+@mixin svg-color($color) {
+    a {
+        color: $color;
+
+        svg {
+            path {
+                fill: $color
+            }
+        }
+    }
+}
+
+.aside-menu {
+    background-color: $font-color-purple-dark;
+    max-width: 360px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    padding: 40px 0 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .logo {
+        padding: 20px 0;
+    }
+
+    .aside-list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+
+        &__item {
+            position: relative;
+
+            a {
+                display: block;
+                text-decoration: none;
+                padding: 18px 24px;
+                font-size: 20px;
+                font-weight: bold;
+                letter-spacing: 2px;
+
+                figure {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+            }
+
+            @include svg-color(#ffffff);
+
+            &:not(.active):hover {
+                @include svg-color($font-color-orange);
+            }
+
+            &.active {
+                @include svg-color($font-color-orange);
+
+                a {
+                    background-color: $font-color-purple-light;
+                    border-radius: 20px 0 0 20px;
+                    position: relative;
+
+                    &::after {
+                        @include curved;
+                        bottom: -70px;
+                        border-radius: 0 50% 0 50%;
+                        box-shadow: 25px -25px 0 $font-color-purple-light;
+                    }
+
+                    &::before {
+                        @include curved;
+                        top: -70px;
+                        border-radius: 50% 0 50% 0;
+                        box-shadow: 25px 25px 0 $font-color-purple-light;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .aside-contact{
+        background-color: #5543A5;
+        max-width: 300px;
+        padding: 40px 0 50px 20px;
+        border-radius: 30px;
+
+       div {
+           position: relative;
+
+           h3{
+               color: #fff;
+           }
+
+           p{
+               color: #fff;
+               margin: 20px 0;
+           }
+       }
+
+        &__icon{
+            position: relative;
+            height: 100px;
+            img{
+                position: absolute;
+                right: 0px;
+                bottom: -50px;
+                display: block;
+            }
+        }
+    }
+}
